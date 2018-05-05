@@ -1,0 +1,13 @@
+FROM php:7
+
+ENV server_root=/var/www/html/
+
+VOLUME $server_root /var/www/html/
+
+RUN apt-get update && \
+	apt-get -y install wget && \
+	wget -O /bin/phpunit https://phar.phpunit.de/phpunit-7.phar && \
+	chmod +x /bin/phpunit && \
+	phpunit --version
+
+

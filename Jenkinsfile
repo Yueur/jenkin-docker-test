@@ -1,7 +1,7 @@
 pipeline {
 	agent {
-		dockerfile{
-			// additionalBuildArgs  '--no-cache'
+		docker{
+			image 'phpunit-5'
 		}
 	}
 	stages{

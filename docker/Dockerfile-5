@@ -1,0 +1,14 @@
+FROM php:5
+# 5 is same as 5.6 (5th lastest version)
+
+ENV server_root=/var/www/html/
+
+VOLUME $server_root /var/www/html/
+
+RUN apt-get update && \
+	apt-get -y install wget && \
+	wget -O /bin/phpunit https://phar.phpunit.de/phpunit-5.phar && \
+	chmod +x /bin/phpunit && \
+	phpunit --version
+
+
