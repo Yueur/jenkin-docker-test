@@ -7,12 +7,8 @@ pipeline {
 	stages{
 		stage('Prepare'){
 			steps {
-				sh 'echo Hello world'
-				sh 'echo myCustomDockerEnvVar = $myCustomDockerEnvVar'
 				sh 'php -version'
 				sh 'phpunit --version'
-				sh 'pwd'
-				sh 'ls'
 			}
 		}
 		stage('Run'){
@@ -22,8 +18,8 @@ pipeline {
 		}
 	}
 	post {
-        always {
-            junit 'result.xml'
-        }
-    }
+		always {
+			junit 'result.xml'
+		}
+	}
 }
