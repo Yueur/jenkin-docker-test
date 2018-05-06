@@ -24,12 +24,13 @@ This repo is just for testing Jenkins
 2. Get Your repo's URL ; let's say https://github.com/Yueur/jenkin-docker-test.git
 	Please note that Jenkins **HAS** to use the same URL (if it's HTTPS then it's HTTPS ; SSH is SSH)
 3. Poke at http://127.0.0.1:8080/git/notifyCommit?url=https://github.com/Yueur/jenkin-docker-test.git
-	You can do this with `curl http://127.0.0.1:8080/git/notifyCommit?url=https://github.com/Yueur/jenkin-docker-test.git`
+	You can do this in a shell with `curl http://127.0.0.1:8080/git/notifyCommit?url=https://github.com/Yueur/jenkin-docker-test.git`
 	Please note that the parm url need to be accessible by your Jenkins
 
-4. To make auto-test after push just create a post-receive file in hooks in the server's git repo folder `$PATH/hooks/post-receive`
+4. To make auto-test after push just create a post-receive file in hooks in the server's git repo folder `$PATH_TO_GIT_REPO/hooks/post-receive`
 	Code inside: 
-`#!/bin/bash
+`
+#!/bin/bash
 
 curl http://127.0.0.1:8080/git/notifyCommit?url=file:///home/yueur/Musique/serveur
 `
